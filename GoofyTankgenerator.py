@@ -10,6 +10,7 @@ class goofyTankUI(QtWidgets.QDialog):
         self.setMinimumWidth(500)
         layout = QtWidgets.QVBoxLayout(self)
         self.turret_section(layout)
+        self.hull_section(layout)
 
 
 #Turret should have a input or have a spinbox 
@@ -30,14 +31,24 @@ class goofyTankUI(QtWidgets.QDialog):
         self.turret_height.setValue(1.0)
         layout.addWidget(self.turret_height)
         
-
-
-    
-
-
-   # def hull_section(self, layout):
+#Hull spinbox 
+    def hull_section(self, layout):
         layout.addWidget(QtWidgets.QLabel("Hull"))
-        pass
+
+        layout.addWidget(QtWidgets.QLabel("Hull Length"))
+        self.hull_length = QtWidgets.QDoubleSpinBox()
+        #temporary values** Change v
+        self.hull_length.setRange(1, 2)
+        self.hull_length.setValue(1.0)
+        layout.addWidget(self.hull_length)
+        
+        layout.addWidget(QtWidgets.QLabel("Hull Height"))
+        self.hull_height = QtWidgets.QDoubleSpinBox()
+        #temporary values** Change v
+        self.hull_height.setRange(1, 2)
+        self.hull_height.setValue(1.0)
+        layout.addWidget(self.hull_height)
+                
 
    # def barrel_section(self, layout):
         layout.addWidget(QtWidgets.QLabel("Barrel"))
