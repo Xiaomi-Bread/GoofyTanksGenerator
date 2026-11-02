@@ -60,6 +60,17 @@ class goofyTankUI(QtWidgets.QDialog):
         self.hull_height.setValue(1.0)
         layout.addWidget(self.hull_height)
 
+        layout.addWidget(QtWidgets.QLabel("Hull Type"))
+        self.hull_type = QtWidgets.QComboBox()
+        self.hull_type.addItems([
+            "Default",
+            "Sloped",
+            "Rounded",
+            "Trapezoid"
+        ])
+        layout.addWidget(self.hull_type)
+        
+
                 
 # def barrel_section(self, layout):
         layout.addWidget(QtWidgets.QLabel("Barrel"))
