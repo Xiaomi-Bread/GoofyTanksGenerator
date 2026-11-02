@@ -30,6 +30,17 @@ class goofyTankUI(QtWidgets.QDialog):
         self.turret_height.setRange(1, 2)
         self.turret_height.setValue(1.0)
         layout.addWidget(self.turret_height)
+
+        layout.addWidget(QtWidgets.QLabel("Turret Type"))
+        self.turret_type = QtWidgets.QComboBox()
+        self.turret_type.addItems([
+            "Default",
+            "Sloped",
+            "Rounded",
+            "Trapezoid"
+        ])
+        layout.addWidget(self.turret_type)
+
         
 #Hull spinbox 
     def hull_section(self, layout):
@@ -48,9 +59,9 @@ class goofyTankUI(QtWidgets.QDialog):
         self.hull_height.setRange(1, 2)
         self.hull_height.setValue(1.0)
         layout.addWidget(self.hull_height)
-                
 
-   # def barrel_section(self, layout):
+                
+# def barrel_section(self, layout):
         layout.addWidget(QtWidgets.QLabel("Barrel"))
         pass
 
