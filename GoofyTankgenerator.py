@@ -11,6 +11,7 @@ class goofyTankUI(QtWidgets.QDialog):
         layout = QtWidgets.QVBoxLayout(self)
         self.turret_section(layout)
         self.hull_section(layout)
+        self.barrel_section(layout)
 
 
 #Turret should have a input or have a spinbox 
@@ -70,17 +71,28 @@ class goofyTankUI(QtWidgets.QDialog):
         ])
         layout.addWidget(self.hull_type)
         
-
                 
-# def barrel_section(self, layout):
+    def barrel_section(self, layout):
         layout.addWidget(QtWidgets.QLabel("Barrel"))
-        pass
+        
+        layout.addWidget(QtWidgets.QLabel("Barrel Length"))
+        self.barrel_length = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
+        #temporary values** Change v
+        self.barrel_length.setRange(1, 5)
+        self.barrel_length.setValue(1.0)
+        layout.addWidget(self.barrel_length)
+
+        layout.addWidget(QtWidgets.QLabel("Barrel Thickness"))
+        self.barrel_thickness = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
+        #temporary values** Change v
+        self.barrel_thickness.setRange(1, 5)
+        self.barrel_thickness.setValue(1.0)
+        layout.addWidget(self.barrel_thickness)
+        
 
    # def tracks_section(self, layout)
         layout.addWidget(QtWidgets.QLabel("Tracks"))
         pass
-
-
 
 generator_window = goofyTankUI()
 generator_window.show()
