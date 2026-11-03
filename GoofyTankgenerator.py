@@ -88,11 +88,20 @@ class goofyTankUI(QtWidgets.QDialog):
         self.barrel_thickness.setRange(1, 5)
         self.barrel_thickness.setValue(1.0)
         layout.addWidget(self.barrel_thickness)
-        
 
-   # def tracks_section(self, layout)
-        layout.addWidget(QtWidgets.QLabel("Tracks"))
-        pass
+        layout.addWidget(QtWidgets.QLabel("Gun Type"))
+        self.gun_type = QtWidgets.QComboBox()
+        self.gun_type.addItems([
+            "Standard",
+            "Laser",
+            "Cannon"
+        ])
+        layout.addWidget(self.gun_type)
+
+    #def tracks_section(self, layout)
+        #layout.addWidget(QtWidgets.QLabel("Tracks"))
+        #pass
+
 
 generator_window = goofyTankUI()
 generator_window.show()
