@@ -109,11 +109,22 @@ class goofyTankUI(QtWidgets.QDialog):
         self.track_length.setValue(1.0)
         layout.addWidget(self.track_length)
 
+        layout.addWidget(QtWidgets.QLabel("Track Height"))
         self.track_height = QtWidgets.QDoubleSpinBox()
+        #temporary values** Change v
         self.track_height.setRange(1, 5)
         self.track_height.setValue(1.0)
         layout.addWidget(self.track_height)
 
+        layout.addWidget(QtWidgets.QLabel("Track Type"))
+        self.track_type = QtWidgets.QComboBox()
+        self.track_type.addItems([
+            "Default",
+            "Low Track",
+            "High Track",
+            "Wheeld Track"
+        ])
+        layout.addWidget(self.track_type)
 
 
 
