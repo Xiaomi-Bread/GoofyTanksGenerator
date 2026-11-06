@@ -17,7 +17,8 @@ def make_tank(inputs):
 
     hull_type = inputs["Hull Type"]
     turret_type = inputs["Turret Type"]
-
+    gun_type = inputs["Gun Type"]
+    track_type = inputs["Track Type"]
 
 
 
@@ -43,7 +44,6 @@ def make_tank(inputs):
             hull_depth / 2, 
             hull
         )
-        
     # Position to all hull
     cmds.move(0, (hull_height / 2 +0.2), 0, hull)
 
@@ -95,15 +95,30 @@ def make_tank(inputs):
     )[0]
     cmds.move(-(hull_width /2), track_height / 2, 0 ,r_track)
 
+    
 
-    barrel = cmds.polyCylinder(
-        name="Tank_Gun",
-        radius=barrel_thickness * 0.1,
-        height=barrel_length
-    )[0]
-    cmds.rotate(90,0,0, barrel)
+    if gun_type == "Default":
+        barrel = cmds.polyCylinder(
+            name="Default_tankGun",
+            radius=barrel_thickness * 0.1,
+            height=barrel_length
+        )[0]
+
+    elif gun_type == "Laser":
+        barrel = cmds.polyCube(
+            name="Laser_tankGun",
+            width=barrel_length,
+            height=barrel_thickness * 0.1,
+        )[0]
+    cmds.scale(
+        barrel_thickness *0.25,
+        barrel_length /0.2,
+        barrel
+    )
     cmds.move(0, (hull_height + turret_height /2 + 0.2), 
               (turret_depth /2 + barrel_length /2 ), barrel)
+
+
 
     tank_group = cmds.group(
         hull,
@@ -115,6 +130,9 @@ def make_tank(inputs):
     )
 
     return tank_group
+
+
+
 
 
 
