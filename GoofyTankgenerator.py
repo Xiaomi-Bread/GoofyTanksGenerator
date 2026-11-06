@@ -32,15 +32,13 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Turret Length"))
         self.turret_length = QtWidgets.QDoubleSpinBox()
-        #temporary values** Change v
-        self.turret_length.setRange(1, 2)
+        self.turret_length.setRange(1, 5)
         self.turret_length.setValue(1.0)
         layout.addWidget(self.turret_length)
 
         layout.addWidget(QtWidgets.QLabel("Turret Height"))
         self.turret_height = QtWidgets.QDoubleSpinBox()
-        #temporary values** Change v
-        self.turret_height.setRange(1, 2)
+        self.turret_height.setRange(1, 5)
         self.turret_height.setValue(1.0)
         layout.addWidget(self.turret_height)
 
@@ -61,15 +59,13 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Hull Length"))
         self.hull_length = QtWidgets.QDoubleSpinBox()
-        #temporary values** Change v
-        self.hull_length.setRange(1, 2)
+        self.hull_length.setRange(1, 5)
         self.hull_length.setValue(1.0)
         layout.addWidget(self.hull_length)
         
         layout.addWidget(QtWidgets.QLabel("Hull Height"))
         self.hull_height = QtWidgets.QDoubleSpinBox()
-        #temporary values** Change v
-        self.hull_height.setRange(1, 2)
+        self.hull_height.setRange(1, 5)
         self.hull_height.setValue(1.0)
         layout.addWidget(self.hull_height)
 
@@ -89,14 +85,12 @@ class goofyTankUI(QtWidgets.QDialog):
         
         layout.addWidget(QtWidgets.QLabel("Barrel Length"))
         self.barrel_length = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
-        #temporary values** Change v
         self.barrel_length.setRange(1, 5)
         self.barrel_length.setValue(1.0)
         layout.addWidget(self.barrel_length)
 
         layout.addWidget(QtWidgets.QLabel("Barrel Thickness"))
         self.barrel_thickness = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
-        #temporary values** Change v
         self.barrel_thickness.setRange(1, 5)
         self.barrel_thickness.setValue(1.0)
         layout.addWidget(self.barrel_thickness)
@@ -115,14 +109,12 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Track Length"))
         self.track_length = QtWidgets.QDoubleSpinBox()
-        #temporary values** Change v
         self.track_length.setRange(1, 5)
         self.track_length.setValue(1.0)
         layout.addWidget(self.track_length)
 
         layout.addWidget(QtWidgets.QLabel("Track Height"))
         self.track_height = QtWidgets.QDoubleSpinBox()
-        #temporary values** Change v
         self.track_height.setRange(1, 5)
         self.track_height.setValue(1.0)
         layout.addWidget(self.track_height)
