@@ -14,6 +14,12 @@ class goofyTankUI(QtWidgets.QDialog):
         self.barrel_section(layout)
         self.tracks_section(layout)
 
+        self.generate_tank_button = QtWidgets.QPushButton("Create Tank")
+        layout.addWidget(self.generate_tank_button)
+        self.generate_tank_button.clicked.connect(self.generate_tank)
+
+
+#----GUI----#
 
 #Turret should have a input or have a spinbox 
     def turret_section(self, layout): 
@@ -102,7 +108,7 @@ class goofyTankUI(QtWidgets.QDialog):
     def tracks_section(self, layout):
         layout.addWidget(QtWidgets.QLabel("Tracks"))
 
-        layout.addWidget(QtWidgets.QLabel("Tracks Length"))
+        layout.addWidget(QtWidgets.QLabel("Track Length"))
         self.track_length = QtWidgets.QDoubleSpinBox()
         #temporary values** Change v
         self.track_length.setRange(1, 5)
@@ -126,6 +132,17 @@ class goofyTankUI(QtWidgets.QDialog):
         ])
         layout.addWidget(self.track_type)
 
+    def generate_tank(self):
+        inputs = self.get_input()
+        print("If you read this: goofy tanks on their way")
+        print(inputs)
+
+    def get_input(self):
+        inputs = {
+            "Turret Length": self.turret_length.value(),
+
+        }
+        return inputs
 
 
 generator_window = goofyTankUI()
