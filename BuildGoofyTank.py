@@ -3,10 +3,10 @@ import maya.cmds as cmds
 
 def make_tank(inputs):
 
-    hull_length = inputs["Hull Length"]
+    hull_width = inputs["Hull Width"]
     hull_height = inputs["Hull Height"]
     
-    turret_length = inputs["Turret Length"]
+    turret_width = inputs["Turret Width"]
     turret_height = inputs["Turret Height"]
 
     track_length = inputs["Track Length"]
@@ -18,7 +18,7 @@ def make_tank(inputs):
     # Creates all polys 
     hull = cmds.polyCube(
         name="Tank_Hull",
-        width=hull_length,
+        width=hull_width,
         height=hull_height,
         depth=hull_depth
     )[0]
@@ -33,7 +33,7 @@ def make_tank(inputs):
 
     turret = cmds.polyCube(
         name="Tank_Turret",
-        width=turret_length,
+        width=turret_width,
         height=turret_height,
         depth= turret_depth
     )[0]
@@ -50,7 +50,7 @@ def make_tank(inputs):
         height=track_height,
         depth=track_length
     )[0]
-    cmds.move((hull_length / 2), track_height / 2, 0 , l_track)
+    cmds.move((hull_width / 2), track_height / 2, 0 , l_track)
 
     #R = Right
     r_track = cmds.polyCube(
@@ -59,7 +59,7 @@ def make_tank(inputs):
         height=track_height,
         depth=track_length
     )[0]
-    cmds.move(-(hull_length /2), track_height / 2, 0 ,r_track)
+    cmds.move(-(hull_width /2), track_height / 2, 0 ,r_track)
 
 
 
