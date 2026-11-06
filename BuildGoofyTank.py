@@ -16,6 +16,9 @@ def make_tank(inputs):
     barrel_thickness = inputs["Barrel Thickness"]
 
     hull_type = inputs["Hull Type"]
+    turret_type = inputs["Turret Type"]
+
+
 
 
     hull_depth = 3
@@ -38,20 +41,36 @@ def make_tank(inputs):
             hull_width / 2,
             hull_height / 1.5,
             hull_depth / 2, 
+            hull
         )
-
-    # Position all polys 
+        
+    # Position to all hull
     cmds.move(0, (hull_height / 2 +0.2), 0, hull)
 
 
     turret_depth = 2.0
 
-    turret = cmds.polyCube(
-        name="Tank_Turret",
-        width=turret_width,
-        height=turret_height,
-        depth= turret_depth
-    )[0]
+    if turret_type == "Default":
+        turret = cmds.polyCube(
+            name="Tank_Turret",
+            width=turret_width,
+            height=turret_height,
+            depth= turret_depth
+        )[0]
+
+    elif turret_type == "Rounded": 
+        turret = cmds.polySphere(
+            name="Rounded_tankTurret",
+            radius=1 
+        )[0]
+
+        cmds.scale(
+            turret_width /1.5, 
+            turret_height /2,
+            turret_depth /2,
+            turret
+        )
+    
     cmds.move(0, (hull_height + turret_height /2 + 0.2), 0, turret)
 
 
@@ -96,5 +115,8 @@ def make_tank(inputs):
     )
 
     return tank_group
+
+
+
 
 
