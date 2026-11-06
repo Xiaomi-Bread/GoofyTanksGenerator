@@ -29,7 +29,7 @@ def make_tank(inputs):
     print("Hull successfully created!")
 
 
-    turret_depth = 2.5
+    turret_depth = 2.0
 
     turret = cmds.polyCube(
         name="Tank_Turret",

@@ -146,7 +146,7 @@ class goofyTankUI(QtWidgets.QDialog):
             "Hull Type": self.hull_type.currentText(),
 
 
-            "Turret Width": self.turret_width.value()+1,
+            "Turret Width": self.turret_width.value()+0.4,
             "Turret Height": self.turret_height.value(),
             "Turret Type": self.turret_type.currentText(),
 
