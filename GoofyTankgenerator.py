@@ -1,5 +1,10 @@
+import importlib
+
 from PySide6  import QtWidgets, QtCore
 import maya.cmds as cmds
+
+import BuildGoofyTank
+importlib.reload(BuildGoofyTank)
 
 class goofyTankUI(QtWidgets.QDialog):
 
@@ -133,17 +138,32 @@ class goofyTankUI(QtWidgets.QDialog):
         layout.addWidget(self.track_type)
 
     def generate_tank(self):
+
         inputs = self.get_input()
+        BuildGoofyTank.make_tank(inputs)
         print("If you read this: goofy tanks on their way")
         print(inputs)
 
     def get_input(self):
         inputs = {
             "Turret Length": self.turret_length.value(),
+            "Turret Height": self.turret_height.value(),
+            "Turret Type": self.turret_type.currentText(),
 
+
+            "Hull Length": self.hull_length.value(),
+            "Hull Height": self.hull_height.value(),
+            "Hull Type": self.hull_type.currentText(),
+
+
+            "Barrel Length": self.barrel_length.value(),
+            "Barrel Thickness": self.barrel_thickness.value(),
+            "Gun Type": self.gun_type.currentText(),
+
+
+            "Track Length": self.track_length.value(),
+            "Track Height": self.track_height.value(),
+            "Track Type": self.track_type.currentText()
         }
         return inputs
 
-
-generator_window = goofyTankUI()
-generator_window.show()
