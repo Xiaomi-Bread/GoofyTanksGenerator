@@ -104,7 +104,7 @@ class goofyTankUI(QtWidgets.QDialog):
         layout.addWidget(QtWidgets.QLabel("Gun Type"))
         self.gun_type = QtWidgets.QComboBox()
         self.gun_type.addItems([
-            "Standard",
+            "Default",
             "Laser",
             "Cannon"
         ])
@@ -151,7 +151,7 @@ class goofyTankUI(QtWidgets.QDialog):
             "Turret Type": self.turret_type.currentText(),
 
 
-            "Hull Length": self.hull_length.value(),
+            "Hull Length": self.hull_length.value()+1.5,
             "Hull Height": self.hull_height.value(),
             "Hull Type": self.hull_type.currentText(),
 
@@ -161,7 +161,7 @@ class goofyTankUI(QtWidgets.QDialog):
             "Gun Type": self.gun_type.currentText(),
 
 
-            "Track Length": self.track_length.value(),
+            "Track Length": self.track_length.value()+2.5 ,
             "Track Height": self.track_height.value(),
             "Track Type": self.track_type.currentText()
         }
