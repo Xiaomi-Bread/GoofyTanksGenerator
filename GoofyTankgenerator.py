@@ -38,7 +38,7 @@ class goofyTankUI(QtWidgets.QDialog):
         
         layout.addWidget(QtWidgets.QLabel("Hull Height"))
         self.hull_height = QtWidgets.QDoubleSpinBox()
-        self.hull_height.setRange(1, 5)
+        self.hull_height.setRange(1, 3)
         self.hull_height.setValue(1.0)
         layout.addWidget(self.hull_height)
 
@@ -65,7 +65,7 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Turret Height"))
         self.turret_height = QtWidgets.QDoubleSpinBox()
-        self.turret_height.setRange(1, 5)
+        self.turret_height.setRange(1, 3)
         self.turret_height.setValue(1.0)
         layout.addWidget(self.turret_height)
 
@@ -116,7 +116,7 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Track Height"))
         self.track_height = QtWidgets.QDoubleSpinBox()
-        self.track_height.setRange(1, 5)
+        self.track_height.setRange(1, 3)
         self.track_height.setValue(1.0)
         layout.addWidget(self.track_height)
 

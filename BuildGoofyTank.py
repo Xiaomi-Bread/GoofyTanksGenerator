@@ -12,6 +12,10 @@ def make_tank(inputs):
     track_length = inputs["Track Length"]
     track_height = inputs["Track Height"]
 
+    barrel_length = inputs["Barrel Length"]
+    barrel_thickness = inputs["Barrel Thickness"]
+
+
 
     hull_depth = 3
 
@@ -24,9 +28,7 @@ def make_tank(inputs):
     )[0]
 
     # Position all polys 
-    cmds.move(0, hull_height / 2, 0, hull)
-
-    print("Hull successfully created!")
+    cmds.move(0, (hull_height / 2 +0.2), 0, hull)
 
 
     turret_depth = 2.0
@@ -37,12 +39,11 @@ def make_tank(inputs):
         height=turret_height,
         depth= turret_depth
     )[0]
-    cmds.move(0, hull_height + turret_height /2, 0, turret)
-
-    print("Turret created!")
+    cmds.move(0, (hull_height + turret_height /2 + 0.2), 0, turret)
 
 
     track_depth = 0.5
+
     #L = Left
     l_track = cmds.polyCube(
         name="Tank_LTrack",
@@ -51,6 +52,7 @@ def make_tank(inputs):
         depth=track_length
     )[0]
     cmds.move((hull_width / 2), track_height / 2, 0 , l_track)
+
 
     #R = Right
     r_track = cmds.polyCube(
@@ -62,4 +64,12 @@ def make_tank(inputs):
     cmds.move(-(hull_width /2), track_height / 2, 0 ,r_track)
 
 
+    barrel = cmds.polyCylinder(
+        name="Tank_Gun",
+        radius=barrel_thickness * 0.1,
+        height=barrel_length
+    )[0]
+    cmds.rotate(90,0,0, barrel)
+    cmds.move(0, (hull_height + turret_height /2 + 0.2), 
+              (turret_depth /2 + barrel_length /2 ), barrel)
 
