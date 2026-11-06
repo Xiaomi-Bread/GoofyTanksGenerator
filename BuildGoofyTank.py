@@ -73,3 +73,16 @@ def make_tank(inputs):
     cmds.move(0, (hull_height + turret_height /2 + 0.2), 
               (turret_depth /2 + barrel_length /2 ), barrel)
 
+    tank_group = cmds.group(
+        hull,
+        turret,
+        barrel,
+        l_track,
+        r_track,
+        name= "GoofyTank_GRP"
+    )
+
+    return tank_group
+
+
+
