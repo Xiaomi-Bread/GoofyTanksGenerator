@@ -15,17 +15,30 @@ def make_tank(inputs):
     barrel_length = inputs["Barrel Length"]
     barrel_thickness = inputs["Barrel Thickness"]
 
+    hull_type = inputs["Hull Type"]
 
 
     hull_depth = 3
 
-    # Creates all polys 
-    hull = cmds.polyCube(
-        name="Tank_Hull",
-        width=hull_width,
-        height=hull_height,
-        depth=hull_depth
-    )[0]
+    if hull_type == "Default":
+ 
+        hull = cmds.polyCube(
+            name="Default_tankHull",
+            width=hull_width,
+            height=hull_height,
+            depth=hull_depth
+        )[0]
+
+    elif hull_type == "Rounded": 
+        hull = cmds.polySphere(
+            name="Rounded_tankHull",
+            radius=1
+        )[0]
+        cmds.scale(
+            hull_width / 2,
+            hull_height / 1.5,
+            hull_depth / 2, 
+        )
 
     # Position all polys 
     cmds.move(0, (hull_height / 2 +0.2), 0, hull)
@@ -83,6 +96,5 @@ def make_tank(inputs):
     )
 
     return tank_group
-
 
 
