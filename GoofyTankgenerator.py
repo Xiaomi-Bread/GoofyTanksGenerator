@@ -41,7 +41,8 @@ class goofyTankUI(QtWidgets.QDialog):
 
 #----GUI----#
 
-#Hull spinbox 
+#Hull spinbox--
+
     def hull_section(self, layout):
 
         layout.addWidget(QtWidgets.QLabel("Hull Width"))
@@ -67,7 +68,8 @@ class goofyTankUI(QtWidgets.QDialog):
         layout.addWidget(self.hull_type)
 
 
-#Turret should have a input or have a spinbox 
+#Turret spinbox--
+
     def turret_section(self, layout): 
 
         layout.addWidget(QtWidgets.QLabel("Turret Width"))
@@ -92,7 +94,9 @@ class goofyTankUI(QtWidgets.QDialog):
         ])
         layout.addWidget(self.turret_type)
 
-                
+
+#Barrel spinbox--  
+        
     def barrel_section(self, layout):
         
         layout.addWidget(QtWidgets.QLabel("Barrel Length"))
@@ -117,6 +121,8 @@ class goofyTankUI(QtWidgets.QDialog):
         layout.addWidget(self.gun_type)
 
 
+#Tracks spinbox--
+
     def tracks_section(self, layout):
 
         layout.addWidget(QtWidgets.QLabel("Track Length"))
@@ -130,6 +136,9 @@ class goofyTankUI(QtWidgets.QDialog):
         self.track_height.setRange(0.2, 1.5)
         self.track_height.setValue(1.0)
         layout.addWidget(self.track_height)
+
+
+#Surpise Me Button--
 
     def randomized_tank(self):
         inputs =BuildGoofyTank.random_tank_inputs()
@@ -151,6 +160,8 @@ class goofyTankUI(QtWidgets.QDialog):
 
         self.generate_tank()
 
+
+#Normal way to generate button--
 
     def generate_tank(self):
 

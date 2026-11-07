@@ -21,6 +21,7 @@ def make_tank(inputs):
     gun_type = inputs["Gun Type"]
 
 
+#---Hull--
 
     hull_depth = 3
 
@@ -98,6 +99,7 @@ def make_tank(inputs):
     cmds.move(0, (hull_height / 2 +0.2), 0, hull)
 
 
+#---Turret--
 
     turret_depth = 2.0
 
@@ -149,7 +151,6 @@ def make_tank(inputs):
                         translation=pos
                     )
 
-
     elif turret_type == "Trapezoid":
         turret = cmds.polyCube(
             name="Sloped_tankTurret",
@@ -183,8 +184,7 @@ def make_tank(inputs):
     cmds.move(0, (hull_height + turret_height /2 + 0.2), 0, turret)
 
     
-    
-
+#---Track--
 
     track_depth = 0.5
 
@@ -208,7 +208,7 @@ def make_tank(inputs):
     cmds.move(-(hull_width /2), track_height / 2, 0 ,r_track)
 
 
-
+#---Barrel/Gun--
 
     barrel_y = hull_height + turret_height /2 + 0.2
     barrel_z = turret_depth /2 + barrel_length / 2 -0.2
@@ -228,7 +228,6 @@ def make_tank(inputs):
             height=barrel_thickness * 0.5,
             depth =barrel_length
         )[0]
-
 
     elif gun_type == "Cannon":
 
@@ -271,7 +270,10 @@ def make_tank(inputs):
                         pos[2] * factor
                     ]
                 )
+    # Position to all barrel/gun
     cmds.move(0, barrel_y, barrel_z, barrel)
+
+#--Grouping model
 
     tank_group = cmds.group(
         hull,
