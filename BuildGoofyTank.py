@@ -95,30 +95,69 @@ def make_tank(inputs):
     )[0]
     cmds.move(-(hull_width /2), track_height / 2, 0 ,r_track)
 
-    
+
+    barrel_y = hull_height + turret_height /2 + 0.2
+    barrel_z = turret_depth /2 + barrel_length / 2
 
     if gun_type == "Default":
         barrel = cmds.polyCylinder(
             name="Default_tankGun",
             radius=barrel_thickness * 0.1,
-            height=barrel_length
+            height=barrel_length   
         )[0]
+        cmds.rotate(90, 0, 0, barrel)
 
     elif gun_type == "Laser":
         barrel = cmds.polyCube(
             name="Laser_tankGun",
-            width=barrel_length,
-            height=barrel_thickness * 0.1,
+            width=barrel_thickness * 0.25,
+            height=barrel_thickness * 0.5,
+            depth =barrel_length
         )[0]
-    cmds.scale(
-        barrel_thickness *0.25,
-        barrel_length /0.2,
-        barrel
-    )
-    cmds.move(0, (hull_height + turret_height /2 + 0.2), 
-              (turret_depth /2 + barrel_length /2 ), barrel)
 
 
+    elif gun_type == "Cannon":
+
+        barrel = cmds.polyCylinder(
+            name="Cannon_tankGun",
+            radius=barrel_thickness * 0.1,
+            height=barrel_length,
+            subdivisionsHeight=8,
+            subdivisionsAxis=16
+        )[0]
+        cmds.rotate(90, 0, 0, barrel)
+
+        vertex_count = cmds.polyEvaluate(barrel, vertex=True)
+
+        for i in range(vertex_count):
+
+            vertex = f"{barrel}.vtx[{i}]"
+
+            pos = cmds.xform(
+                vertex,
+                query=True,
+                objectSpace=True,
+                translation=True
+            )
+
+            if pos[1] > barrel_length * 0.25:
+
+                factor = 1 + (
+                    0.8 *
+                    (pos[1] - barrel_length * 0.25) /
+                    (barrel_length * 0.5 - barrel_length * 0.25)
+                )
+            
+                cmds.xform(
+                    vertex,
+                    objectSpace=True,
+                    translation=[
+                        pos[0] * factor,
+                        pos[1],
+                        pos[2] * factor
+                    ]
+                )
+    cmds.move(0, barrel_y, barrel_z, barrel)
 
     tank_group = cmds.group(
         hull,
@@ -130,8 +169,6 @@ def make_tank(inputs):
     )
 
     return tank_group
-
-
 
 
 
