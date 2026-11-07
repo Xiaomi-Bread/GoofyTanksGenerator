@@ -129,12 +129,15 @@ class goofyTankUI(QtWidgets.QDialog):
 
         self.hull_width.setValue(inputs["Hull Width"] -1.5)
         self.hull_height.setValue(inputs["Hull Height"])
+        self.hull_type.setCurrentText(inputs["Hull Type"])
 
         self.turret_width.setValue(inputs["Turret Width"] -0.4)
         self.turret_height.setValue(inputs["Turret Height"])
+        self.turret_type.setCurrentText(inputs["Turret Type"])
 
         self.barrel_length.setValue(inputs["Barrel Length"]-0.5)
         self.barrel_thickness.setValue(inputs["Barrel Thickness"])
+        self.gun_type.setCurrentText(inputs["Gun Type"])
 
         self.track_length.setValue(inputs["Track Length"]- 2.5)
         self.track_height.setValue(inputs["Track Height"])
@@ -171,3 +174,5 @@ class goofyTankUI(QtWidgets.QDialog):
             "Track Height": self.track_height.value(),
         }
         return inputs
+
+
