@@ -273,15 +273,14 @@ def make_tank(inputs):
     # Position to all barrel/gun
     cmds.move(0, barrel_y, barrel_z, barrel)
 
-#--Grouping model
+#--Grouping model/parenting polys
 
+    cmds.parent(barrel, turret)
+    cmds.parent(turret, hull)
+    cmds.parent(l_track, hull)
+    cmds.parent(r_track, hull)
     tank_group = cmds.group(
-        hull,
-        turret,
-        barrel,
-        l_track,
-        r_track,
-        name= "GoofyTank_GRP"
+        hull, name="GoofyTank_GRP"
     )
 
     return tank_group
