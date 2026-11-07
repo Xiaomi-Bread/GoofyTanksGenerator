@@ -127,7 +127,17 @@ class goofyTankUI(QtWidgets.QDialog):
     def randomized_tank(self):
         inputs =BuildGoofyTank.random_tank_inputs()
 
-        self.hull_width.setValue(inputs["Hull Width"])
+        self.hull_width.setValue(inputs["Hull Width"] -1.5)
+        self.hull_height.setValue(inputs["Hull Height"])
+
+        self.turret_width.setValue(inputs["Turret Width"] -0.4)
+        self.turret_height.setValue(inputs["Turret Height"])
+
+        self.barrel_length.setValue(inputs["Barrel Length"]-0.5)
+        self.barrel_thickness.setValue(inputs["Barrel Thickness"])
+
+        self.track_length.setValue(inputs["Track Length"]- 2.5)
+        self.track_height.setValue(inputs["Track Height"])
 
         self.generate_tank()
 
