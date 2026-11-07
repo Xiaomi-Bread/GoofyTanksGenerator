@@ -44,6 +44,56 @@ def make_tank(inputs):
             hull_depth / 2, 
             hull
         )
+
+    elif hull_type == "Sloped":
+
+        hull = cmds.polyCube(
+            name="Sloped_tankHull",
+            width=hull_width,
+            height=hull_height,
+            depth=hull_depth
+        )[0]
+
+        for i in range(cmds.polyEvaluate(hull, vertex=True)):
+                vertex = f"{hull}.vtx[{i}]"
+
+                pos = cmds.xform(
+                    vertex,
+                    query=True,
+                    objectSpace=True,
+                    translation=True
+                )
+
+                if pos[1] > 0 and pos[2] > 0:
+                    pos[2] -= hull_depth * 0.2
+
+                    cmds.xform(
+                        vertex,
+                        objectSpace=True,
+                        translation=pos
+                    )
+
+    elif hull_type == "Trapezoid":
+        hull = cmds.polyCube(
+            name="Trapzoid_tankHull",
+            width=hull_width,
+            height=hull_height,
+            depth=hull_depth
+        )[0]
+
+        vertex_count = cmds.polyEvaluate(hull, vertex=True)
+
+        for i in range(vertex_count):
+            vertex = f"{hull}.vtx[{i}]"
+            trap_position = cmds.xform(
+                vertex,
+                query=True,
+                worldSpace=True,
+                translation=True
+            )
+            if trap_position[1] > hull_height * 0.4:
+                cmds.scale(0.75, 1, 0.75, vertex, relative=True)
+
     # Position to all hull
     cmds.move(0, (hull_height / 2 +0.2), 0, hull)
 
@@ -94,6 +144,8 @@ def make_tank(inputs):
         depth=track_length
     )[0]
     cmds.move(-(hull_width /2), track_height / 2, 0 ,r_track)
+
+
 
 
     barrel_y = hull_height + turret_height /2 + 0.2
