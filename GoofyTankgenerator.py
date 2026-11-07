@@ -120,17 +120,6 @@ class goofyTankUI(QtWidgets.QDialog):
         self.track_height.setValue(1.0)
         layout.addWidget(self.track_height)
 
-        layout.addWidget(QtWidgets.QLabel("Track Type"))
-        self.track_type = QtWidgets.QComboBox()
-        self.track_type.addItems([
-            "Default",
-            "Low Track",
-            "High Track",
-            "Wheeld Track"
-        ])
-        layout.addWidget(self.track_type)
-
-
     def generate_tank(self):
 
         inputs = self.get_input()
@@ -158,7 +147,6 @@ class goofyTankUI(QtWidgets.QDialog):
 
             "Track Length": self.track_length.value()+2.5 ,
             "Track Height": self.track_height.value(),
-            "Track Type": self.track_type.currentText()
         }
         return inputs
 

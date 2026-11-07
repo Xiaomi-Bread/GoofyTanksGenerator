@@ -18,7 +18,6 @@ def make_tank(inputs):
     hull_type = inputs["Hull Type"]
     turret_type = inputs["Turret Type"]
     gun_type = inputs["Gun Type"]
-    track_type = inputs["Track Type"]
 
 
 
@@ -283,11 +282,6 @@ def make_tank(inputs):
     )
 
     return tank_group
-
-
-
-
-
 
 
 
