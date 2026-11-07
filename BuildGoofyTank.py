@@ -286,22 +286,24 @@ def make_tank(inputs):
 
 def random_tank_inputs():
     return{
-        "Hull Width": round(random.uniform(0.2, 3)),
-        "Hull Height": round(random.uniform(0.2, 1.5)),
+        "Hull Width": round(random.uniform(0.5, 3.5)),
+        "Hull Height": round(random.uniform(0.5, 1.5)),
         "Hull Type": random.choice(["Default", "Sloped", "Rounded", "Trapezoid"]),
 
-        "Turret Width": round(random.uniform(0.2, 3)),
-        "Turret Height": round(random.uniform(0.2, 1.5)),
+        "Turret Width": round(random.uniform(0.5, 3.5)),
+        "Turret Height": round(random.uniform(0.5, 1.5)),
         "Turret Type": random.choice(["Default", "Sloped", "Rounded", "Trapezoid"]),
 
-        "Barrel Length":round(random.uniform(0.2, 5)),
-        "Barrel Thickness": round(random.uniform(0.2, 3)),
+        "Barrel Length":round(random.uniform(0.5, 5)),
+        "Barrel Thickness": round(random.uniform(0.5, 3)),
         "Gun Type": random.choice(["Default", "Laser", "Cannon"]),
 
-        "Track Length": round(random.uniform(0.2, 3)),
-        "Track Height": round(random.uniform(0.2, 1.5))
+        "Track Length": round(random.uniform(0.5, 3.5)),
+        "Track Height": round(random.uniform(0.5, 1.5))
 
     }
+
+
 
 
 
