@@ -11,6 +11,17 @@ class goofyTankUI(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
 
+        self.setStyleSheet("""
+            QLabel {
+                font-size: 14px;
+                font-weight: bold;
+            }
+            QComboBox, QDoubleSpinBox {
+                font-size: 14px;
+                min-height: 28px;
+            }
+        """)
+
         self.setWindowTitle("Goofy Tanks Proxy Generator")
         self.setMinimumWidth(500)
         layout = QtWidgets.QVBoxLayout(self)
@@ -32,7 +43,6 @@ class goofyTankUI(QtWidgets.QDialog):
 
 #Hull spinbox 
     def hull_section(self, layout):
-        layout.addWidget(QtWidgets.QLabel("Hull"))
 
         layout.addWidget(QtWidgets.QLabel("Hull Width"))
         self.hull_width = QtWidgets.QDoubleSpinBox()
@@ -59,7 +69,6 @@ class goofyTankUI(QtWidgets.QDialog):
 
 #Turret should have a input or have a spinbox 
     def turret_section(self, layout): 
-        layout.addWidget(QtWidgets.QLabel("Turret"))
 
         layout.addWidget(QtWidgets.QLabel("Turret Width"))
         self.turret_width = QtWidgets.QDoubleSpinBox()
@@ -85,7 +94,6 @@ class goofyTankUI(QtWidgets.QDialog):
 
                 
     def barrel_section(self, layout):
-        layout.addWidget(QtWidgets.QLabel("Barrel"))
         
         layout.addWidget(QtWidgets.QLabel("Barrel Length"))
         self.barrel_length = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
@@ -110,7 +118,6 @@ class goofyTankUI(QtWidgets.QDialog):
 
 
     def tracks_section(self, layout):
-        layout.addWidget(QtWidgets.QLabel("Tracks"))
 
         layout.addWidget(QtWidgets.QLabel("Track Length"))
         self.track_length = QtWidgets.QDoubleSpinBox()
@@ -174,3 +181,5 @@ class goofyTankUI(QtWidgets.QDialog):
             "Track Height": self.track_height.value(),
         }
         return inputs
+
+
