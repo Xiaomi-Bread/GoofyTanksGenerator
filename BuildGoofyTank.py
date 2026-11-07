@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+import random
 
 
 def make_tank(inputs):
@@ -282,6 +283,13 @@ def make_tank(inputs):
     )
 
     return tank_group
+
+def random_tank_inputs():
+    return{
+        "Hull Width": round(random.uniform(2.5, 5.5), 2)
+    }
+
+
 
 
 

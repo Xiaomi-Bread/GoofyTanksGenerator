@@ -23,6 +23,10 @@ class goofyTankUI(QtWidgets.QDialog):
         layout.addWidget(self.generate_tank_button)
         self.generate_tank_button.clicked.connect(self.generate_tank)
 
+        self.surprise_button = QtWidgets.QPushButton("Surprise Me!")
+        layout.addWidget(self.surprise_button)
+        self.surprise_button.clicked.connect(self.randomized_tank)
+
 
 #----GUI----#
 
@@ -120,6 +124,14 @@ class goofyTankUI(QtWidgets.QDialog):
         self.track_height.setValue(1.0)
         layout.addWidget(self.track_height)
 
+    def randomized_tank(self):
+        inputs =BuildGoofyTank.random_tank_inputs()
+
+        self.hull_width.setValue(inputs["Hull Width"])
+
+        self.generate_tank()
+
+
     def generate_tank(self):
 
         inputs = self.get_input()
@@ -149,4 +161,3 @@ class goofyTankUI(QtWidgets.QDialog):
             "Track Height": self.track_height.value(),
         }
         return inputs
-
