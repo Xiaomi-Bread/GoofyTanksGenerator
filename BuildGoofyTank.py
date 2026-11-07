@@ -286,10 +286,20 @@ def make_tank(inputs):
 
 def random_tank_inputs():
     return{
-        "Hull Width": round(random.uniform(2.5, 5.5), 2)
+        "Hull Width": round(random.uniform(0.2, 3)),
+        "Hull Height": round(random.uniform(0.2, 1.5)),
+
+        "Turret Width": round(random.uniform(0.2, 3)),
+        "Turret Height": round(random.uniform(0.2, 1.5)),
+
+        "Barrel Length":round(random.uniform(0.2, 5)),
+        "Barrel Thickness": round(random.uniform(0.2, 3)),
+
+        "Track Length": round(random.uniform(0.2, 3)),
+        "Track Height": round(random.uniform(0.2, 1.5))
+
+
     }
-
-
 
 
 

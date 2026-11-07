@@ -36,13 +36,13 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Hull Width"))
         self.hull_width = QtWidgets.QDoubleSpinBox()
-        self.hull_width.setRange(0.2, 5)
+        self.hull_width.setRange(0.2, 3)
         self.hull_width.setValue(1.0)
         layout.addWidget(self.hull_width)
         
         layout.addWidget(QtWidgets.QLabel("Hull Height"))
         self.hull_height = QtWidgets.QDoubleSpinBox()
-        self.hull_height.setRange(0.2, 3)
+        self.hull_height.setRange(0.2, 1.5)
         self.hull_height.setValue(1.0)
         layout.addWidget(self.hull_height)
 
@@ -63,13 +63,13 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Turret Width"))
         self.turret_width = QtWidgets.QDoubleSpinBox()
-        self.turret_width.setRange(0.2, 5)
+        self.turret_width.setRange(0.2, 3)
         self.turret_width.setValue(1.0)
         layout.addWidget(self.turret_width)
 
         layout.addWidget(QtWidgets.QLabel("Turret Height"))
         self.turret_height = QtWidgets.QDoubleSpinBox()
-        self.turret_height.setRange(0.2, 5)
+        self.turret_height.setRange(0.2, 1.5)
         self.turret_height.setValue(1.0)
         layout.addWidget(self.turret_height)
 
@@ -95,7 +95,7 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Barrel Thickness"))
         self.barrel_thickness = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
-        self.barrel_thickness.setRange(0.2, 5)
+        self.barrel_thickness.setRange(0.2, 3)
         self.barrel_thickness.setValue(1.0)
         layout.addWidget(self.barrel_thickness)
 
@@ -114,13 +114,13 @@ class goofyTankUI(QtWidgets.QDialog):
 
         layout.addWidget(QtWidgets.QLabel("Track Length"))
         self.track_length = QtWidgets.QDoubleSpinBox()
-        self.track_length.setRange(0.2, 5)
+        self.track_length.setRange(0.2, 3)
         self.track_length.setValue(1.0)
         layout.addWidget(self.track_length)
 
         layout.addWidget(QtWidgets.QLabel("Track Height"))
         self.track_height = QtWidgets.QDoubleSpinBox()
-        self.track_height.setRange(0.2, 3)
+        self.track_height.setRange(0.2, 1.5)
         self.track_height.setValue(1.0)
         layout.addWidget(self.track_height)
 
