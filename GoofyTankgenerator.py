@@ -151,7 +151,7 @@ class goofyTankUI(QtWidgets.QDialog):
             "Turret Type": self.turret_type.currentText(),
 
 
-            "Barrel Length": self.barrel_length.value(),
+            "Barrel Length": self.barrel_length.value()+0.5,
             "Barrel Thickness": self.barrel_thickness.value(),
             "Gun Type": self.gun_type.currentText(),
 

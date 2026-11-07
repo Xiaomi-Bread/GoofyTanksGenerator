@@ -98,6 +98,7 @@ def make_tank(inputs):
     cmds.move(0, (hull_height / 2 +0.2), 0, hull)
 
 
+
     turret_depth = 2.0
 
     if turret_type == "Default":
@@ -120,8 +121,69 @@ def make_tank(inputs):
             turret_depth /2,
             turret
         )
-    
+
+    elif turret_type == "Sloped":
+        turret = cmds.polyCube(
+            name="Sloped_tankTurret",
+            width=turret_width,
+            height=turret_height,
+            depth= turret_depth
+        )[0]
+
+        for i in range(cmds.polyEvaluate(turret, vertex=True)):
+                vertex = f"{turret}.vtx[{i}]"
+
+                pos = cmds.xform(
+                    vertex,
+                    query=True,
+                    objectSpace=True,
+                    translation=True
+                )
+
+                if pos[1] > 0 and pos[2] > 0:
+                    pos[2] -= turret_depth * 0.2
+
+                    cmds.xform(
+                        vertex,
+                        objectSpace=True,
+                        translation=pos
+                    )
+
+
+    elif turret_type == "Trapezoid":
+        turret = cmds.polyCube(
+            name="Sloped_tankTurret",
+            width=turret_width,
+            height=turret_height,
+            depth= turret_depth
+        )[0]
+
+        for i in range(cmds.polyEvaluate(turret, vertex=True)):
+            vertex = f"{turret}.vtx[{i}]"
+        
+            pos = cmds.xform(
+                vertex,
+                query=True,
+                objectSpace=True,
+                translation=True
+            )
+        
+            if pos[1] > 0:
+                pos[0] *= 0.75
+                pos[2] *=0.75
+        
+                cmds.xform(
+                    vertex,
+                    objectSpace=True,
+                    translation=pos
+            )
+
+
+    # Position to all turrets
     cmds.move(0, (hull_height + turret_height /2 + 0.2), 0, turret)
+
+    
+    
 
 
     track_depth = 0.5
@@ -149,7 +211,7 @@ def make_tank(inputs):
 
 
     barrel_y = hull_height + turret_height /2 + 0.2
-    barrel_z = turret_depth /2 + barrel_length / 2
+    barrel_z = turret_depth /2 + barrel_length / 2 -0.2
 
     if gun_type == "Default":
         barrel = cmds.polyCylinder(
@@ -221,6 +283,9 @@ def make_tank(inputs):
     )
 
     return tank_group
+
+
+
 
 
 
